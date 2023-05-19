@@ -11,9 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.17.3",
-    "nodemon": "^2.0.22"
-  },
-  "devDependencies": {
+    "nodemon": "^2.0.22",
     "@faker-js/faker": "^8.0.1"
   }
 }
