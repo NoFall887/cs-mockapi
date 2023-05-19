@@ -1,7 +1,7 @@
 const { faker } = require("@faker-js/faker");
 const { pickRandom } = require("./helper");
 
-function generateKtpData(params) {
+function generateKtpData() {
     return {
         nik: faker.string.numeric(15),
         name: faker.person.fullName(),
