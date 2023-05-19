@@ -1,6 +1,6 @@
 const { faker } = require("@faker-js/faker");
 const { pickRandom } = require("./helper");
-
+faker.location.country();
 function generateKtpData() {
     return {
         nik: faker.string.numeric(15),
@@ -10,8 +10,8 @@ function generateKtpData() {
         gender: faker.person.sex(),
         rt: faker.string.numeric(3),
         rw: faker.string.numeric(3),
-        subdistrict: faker.string.city(),
-        district: faker.string.city(),
+        subdistrict: faker.location.city(),
+        district: faker.location.city(),
         religion: pickRandom(["islam", "kristen", "katholik", "hindu", "budha"]),
         marital_status: pickRandom(["kawin", "belum kawin"]),
         occupation: faker.person.jobType(),
