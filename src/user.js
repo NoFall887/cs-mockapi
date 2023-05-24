@@ -1,6 +1,6 @@
 const { faker } = require("@faker-js/faker");
 const { pickRandom } = require("./helper");
-faker.location.country();
+
 function generateKtpData() {
     return {
         nik: faker.string.numeric(15),
@@ -20,6 +20,65 @@ function generateKtpData() {
     };
 }
 
+function generateSiup() {
+    return {
+        company_name: faker.company.name(),
+        bussiness_registration_number: faker.string.numeric(13),
+        company_address: faker.location.streetAddress(),
+        kbli_name: faker.lorem.words(4),
+        kbli_code: faker.number.bigInt({ max: 99999 }),
+        address: faker.location.streetAddress(),
+        sub_district: faker.location.city(),
+        district: faker.location.city(),
+        regency: faker.location.state(),
+        province: faker.location.state(),
+        issued_date: faker.date.past(),
+    };
+}
+
+function generateNpwp() {
+    return {
+        code_npwp: faker.string.numeric(12),
+        company_name: faker.company.name(),
+        company_address: faker.location.streetAddress(),
+        registered: faker.date.past(),
+    };
+}
+
+function generateSkdp() {
+    return {
+        skdp_number: faker.string.numeric(10),
+        name: faker.person.fullName(),
+        place_of_birth: faker.location.city(),
+        date_of_birth: faker.date.birthdate(),
+        gender: faker.person.sex(),
+        religion: pickRandom(["islam", "kristen", "katholik", "hindu", "budha"]),
+        citizenship: faker.location.country(),
+        id_card_number: faker.string.numeric(20),
+        occupation: faker.person.jobType(),
+        company_name: faker.company.name(),
+        bussiness_category: faker.commerce.department(),
+        business_address: faker.location.streetAddress(),
+        contact_number: faker.phone.number(),
+        building_status: pickRandom(["milik sendiri", "sewa"]),
+        establishment_deed_number: faker.date.past(),
+        staff_number: faker.number.bigInt(),
+        person_in_charge: faker.person.fullName(),
+    };
+}
+
+function generateTdp() {
+    return {
+        tdp_number: faker.string.numeric(20),
+        npwp_number: faker.string.numeric(20),
+        kbli: faker.number.bigInt(),
+    };
+}
+
 module.exports = {
     generateKtpData,
+    generateNpwp,
+    generateSiup,
+    generateSkdp,
+    generateTdp,
 };
