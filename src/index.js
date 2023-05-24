@@ -30,10 +30,6 @@ server.post("/npwp", (req, res) => {
     res.status(200).jsonp(generateNpwp());
 });
 
-server.post("/siup", (req, res) => {
-    res.status(200).jsonp(generateSiup());
-});
-
 server.post("/skdp", (req, res) => {
     res.status(200).jsonp(generateSkdp());
 });
