@@ -8,8 +8,8 @@ function generateKtpData() {
         birth_place: faker.location.city(),
         birth_date: faker.date.birthdate(),
         gender: faker.person.sex(),
-        rt: faker.number.bigInt(),
-        rw: faker.number.bigInt(),
+        rt: faker.number.int(),
+        rw: faker.number.int(),
         subdistrict: faker.location.city(),
         district: faker.location.city(),
         religion: pickRandom(["islam", "kristen", "katholik", "hindu", "budha"]),
@@ -26,7 +26,7 @@ function generateSiup() {
         bussiness_registration_number: faker.string.numeric(13),
         company_address: faker.location.streetAddress(),
         kbli_name: faker.lorem.words(4),
-        kbli_code: faker.number.bigInt({ max: 99999 }),
+        kbli_code: faker.number.int({ max: 99999 }),
         address: faker.location.streetAddress(),
         sub_district: faker.location.city(),
         district: faker.location.city(),
@@ -62,7 +62,7 @@ function generateSkdp() {
         contact_number: faker.phone.number(),
         building_status: pickRandom(["milik sendiri", "sewa"]),
         establishment_deed_number: faker.date.past(),
-        staff_number: faker.number.bigInt(),
+        staff_number: faker.number.int(),
         person_in_charge: faker.person.fullName(),
     };
 }
@@ -71,7 +71,7 @@ function generateTdp() {
     return {
         tdp_number: faker.string.numeric(20),
         npwp_number: faker.string.numeric(20),
-        kbli: faker.number.bigInt(),
+        kbli: faker.number.int(),
     };
 }
 
