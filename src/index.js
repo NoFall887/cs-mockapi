@@ -5,7 +5,9 @@ const {
     generateNpwp,
     generateSkdp,
     generateTdp,
+    generateCompleteDocument,
 } = require("./user");
+const { generateLocationAndMovement } = require("./location-and-movement");
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 3000;
@@ -15,6 +17,7 @@ server.listen(port, () => {
     console.log("JSON Server is running");
 });
 
+/** @INPUTING_AUTOMATION */
 server.post("/ktp", (request, response) => {
     if (request.method === "POST") {
         const users = generateKtpData();
@@ -36,4 +39,18 @@ server.post("/skdp", (req, res) => {
 
 server.post("/tdp", (req, res) => {
     res.status(200).jsonp(generateTdp());
+});
+
+server.get("/all-document", (req, res) => {
+    res.status(200).json(generateCompleteDocument());
+});
+
+/**@LOCATION_AND_MOVEMENT */
+server.post("/location-and-movement", (req, res) => {
+    res.status(200).json(generateLocationAndMovement());
+});
+
+/**@CAPACITY_AND_EARNING_POWER */
+server.post("/capacity", (req, res) => {
+    res.status(200).json();
 });

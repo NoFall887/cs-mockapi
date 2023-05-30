@@ -75,10 +75,21 @@ function generateTdp() {
     };
 }
 
+function generateCompleteDocument() {
+    return {
+        ktp: generateKtpData(),
+        surat_izin_usaha_perdagangan: generateSiup(),
+        surat_keterangan_domisili_usaha: generateSkdp(),
+        npwp: generateNpwp(),
+        surat_tanda_daftar_perusahaan: generateTdp(),
+    };
+}
+
 module.exports = {
     generateKtpData,
     generateNpwp,
     generateSiup,
     generateSkdp,
     generateTdp,
+    generateCompleteDocument,
 };
