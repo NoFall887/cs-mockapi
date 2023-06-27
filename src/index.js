@@ -6,6 +6,7 @@ const {
     generateSkdp,
     generateTdp,
     generateCompleteDocument,
+    imageUpload,
 } = require("./user");
 const { generateLocationAndMovement } = require("./location-and-movement");
 const server = jsonServer.create();
@@ -18,7 +19,11 @@ server.listen(port, () => {
 });
 
 /** @INPUTING_AUTOMATION */
-server.post("/ktp", (request, response) => {
+server.post("/image/upload/", (request, response) => {
+    response.status(200).json(imageUpload());
+});
+
+server.post("/ktpverification/", (request, response) => {
     if (request.method === "POST") {
         const users = generateKtpData();
         response.status(200).jsonp(users);
